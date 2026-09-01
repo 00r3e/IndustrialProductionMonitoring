@@ -1,44 +1,80 @@
 # PROJECT_CONTEXT
 
-## Current Progress
+## Current Status
 
--   Phase 1: Solution architecture ✅
--   Phase 2: Domain model completed ✅
--   Phase 3: Started Infrastructure
+**Project:** Industrial Production Monitoring System
 
-## Current Step
+**Architecture:** Clean Architecture
 
-Install EF Core packages and next create the AppDbContext.
+**Current Phase:** Phase 4 -- Application Layer
 
-## Architecture
+## Completed Phases
 
-API ├── Application ├── Infrastructure └── Domain
+### Phase 1 -- Solution Architecture
 
-Project references:
+-   Created solution
+-   API
+-   Application
+-   Domain
+-   Infrastructure
+-   Configured project references
 
--   API -\> Application
--   API -\> Infrastructure
--   Application -\> Domain
--   Infrastructure -\> Application
--   Infrastructure -\> Domain
+### Phase 2 -- Domain Layer
 
-## Domain
+Implemented:
 
-Entities: - ProductionLine - Machine - Product - Inspection - Defect
+-   ProductionLine
+-   Machine
+-   Product
+-   Inspection
+-   Defect
 
-Enums: - MachineStatus - InspectionResult - DefectType
+Added business behavior, validation and encapsulation.
 
-## Important Decisions
+### Phase 3 -- Infrastructure Layer
 
--   Domain is independent from EF Core.
--   Private setters are used.
--   Constructors enforce valid creation.
--   Navigation properties use null! for EF Core compatibility.
--   Inspection exposes defects as IReadOnlyCollection.
--   Machine owns its own state transitions.
--   Validation belongs in the domain where appropriate.
+Implemented:
 
-## Next
+-   Entity Framework Core
+-   SQL Server
+-   AppDbContext
+-   DbSets
+-   Fluent API
+-   Entity Configurations
+-   Dependency Injection
+-   InitialCreate migration
+-   Database generation
 
-Create AppDbContext inside Infrastructure, configure Fluent API
-mappings, then create the first migration.
+Database:
+
+IndustrialMonitoringDb
+
+## Current Database
+
+-   ProductionLines
+-   Machines
+-   Products
+-   Inspections
+-   Defects
+-   \_\_EFMigrationsHistory
+
+## Next Phase
+
+Phase 4 -- Application Layer
+
+Topics:
+
+-   Application Services
+-   Use Cases
+-   CQRS concepts
+-   Commands
+-   Queries
+-   DTOs
+-   Validation
+-   Repository interfaces
+-   Business orchestration
+
+Next immediate step:
+
+Design the responsibilities of the Application layer before writing
+code.
