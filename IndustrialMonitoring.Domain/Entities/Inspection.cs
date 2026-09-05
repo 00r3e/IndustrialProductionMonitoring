@@ -37,11 +37,18 @@ namespace IndustrialMonitoring.Domain.Entities
             ArgumentNullException.ThrowIfNull(machine);
             ArgumentNullException.ThrowIfNull(product);
 
-            if (processingTimeMs < 0)
+            if (!Enum.IsDefined(result))
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(result),
+                    "Invalid inspection result.");
+            }
+
+            if (processingTimeMs <= 0)
             {
                 throw new ArgumentOutOfRangeException(
                     nameof(processingTimeMs),
-                    "Processing time cannot be negative.");
+                    "Processing time must be greater than zero.");
             }
 
             Machine = machine;

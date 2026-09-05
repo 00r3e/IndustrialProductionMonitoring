@@ -44,6 +44,12 @@ namespace IndustrialMonitoring.Domain.Entities
 
         public void Start()
         {
+            if (Status == MachineStatus.Running)
+            {
+                throw new InvalidOperationException(
+                    "The machine is already running.");
+            }
+
             if (Status == MachineStatus.Maintenance)
             {
                 throw new InvalidOperationException(
@@ -55,6 +61,18 @@ namespace IndustrialMonitoring.Domain.Entities
 
         public void Stop()
         {
+            if (Status == MachineStatus.Stopped)
+            {
+                throw new InvalidOperationException(
+                    "The machine is already stopped.");
+            }
+
+            if (Status == MachineStatus.Maintenance)
+            {
+                throw new InvalidOperationException(
+                    "A machine in maintenance cannot be stopped.");
+            }
+
             Status = MachineStatus.Stopped;
         }
 
@@ -62,9 +80,14 @@ namespace IndustrialMonitoring.Domain.Entities
         {
             if (Status == MachineStatus.Running)
             {
-                //Later, we might add a custom domain exception : InvalidMachineStateException
                 throw new InvalidOperationException(
                     "A running machine must be stopped before entering maintenance.");
+            }
+
+            if (Status == MachineStatus.Maintenance)
+            {
+                throw new InvalidOperationException(
+                    "The machine is already in maintenance.");
             }
 
             Status = MachineStatus.Maintenance;

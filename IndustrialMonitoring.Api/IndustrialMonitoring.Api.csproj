@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\IndustrialMonitoring.Application\IndustrialMonitoring.Application.csproj" />
     <ProjectReference Include="..\IndustrialMonitoring.Infrastructure\IndustrialMonitoring.Infrastructure.csproj" />
   </ItemGroup>
