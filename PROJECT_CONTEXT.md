@@ -1,80 +1,86 @@
-# PROJECT_CONTEXT
+# PROJECT_CONTEXT.md
 
-## Current Status
+# Industrial Production Monitoring System
 
-**Project:** Industrial Production Monitoring System
+## Project Goal
 
-**Architecture:** Clean Architecture
+Build a portfolio-quality Industrial Production Monitoring System using
+ASP.NET Core, Clean Architecture, Entity Framework Core, SQL Server and
+Angular.
 
-**Current Phase:** Phase 4 -- Application Layer
+The application simulates a real industrial production environment where
+machines inspect products and send inspection results to a central
+server.
 
-## Completed Phases
+The system allows operators and production managers to: - Monitor
+machine status - Record production inspections - View production
+statistics - Analyze quality information - Monitor production in real
+time (later with SignalR)
 
-### Phase 1 -- Solution Architecture
+The project demonstrates professional software architecture rather than
+simple CRUD operations.
 
--   Created solution
--   API
--   Application
--   Domain
--   Infrastructure
--   Configured project references
+## Architecture
 
-### Phase 2 -- Domain Layer
+Presentation (API) → Application → Domain → Infrastructure → SQL Server
 
-Implemented:
+### Domain
 
--   ProductionLine
--   Machine
--   Product
--   Inspection
--   Defect
+-   Entities
+-   Enums
+-   Business Rules
 
-Added business behavior, validation and encapsulation.
+### Application
 
-### Phase 3 -- Infrastructure Layer
-
-Implemented:
-
--   Entity Framework Core
--   SQL Server
--   AppDbContext
--   DbSets
--   Fluent API
--   Entity Configurations
--   Dependency Injection
--   InitialCreate migration
--   Database generation
-
-Database:
-
-IndustrialMonitoringDb
-
-## Current Database
-
--   ProductionLines
--   Machines
--   Products
--   Inspections
--   Defects
--   \_\_EFMigrationsHistory
-
-## Next Phase
-
-Phase 4 -- Application Layer
-
-Topics:
-
--   Application Services
--   Use Cases
--   CQRS concepts
--   Commands
--   Queries
+-   CQRS Commands
+-   CQRS Queries
 -   DTOs
--   Validation
--   Repository interfaces
--   Business orchestration
+-   Repository Interfaces
+-   Handlers
 
-Next immediate step:
+### Infrastructure
 
-Design the responsibilities of the Application layer before writing
-code.
+-   EF Core
+-   SQL Server
+-   Configurations
+-   Repositories
+-   Unit Of Work
+-   Migrations
+-   Seed Data
+
+### API
+
+-   Controllers
+-   Swagger
+-   Dependency Injection
+
+## Current Features
+
+### Machines
+
+-   Start
+-   Stop
+-   Enter Maintenance
+-   Exit Maintenance
+-   Get Machines
+
+### Inspections
+
+-   Create Inspection
+-   Get Inspections
+
+### Dashboard
+
+-   Dashboard Summary
+
+### Lookup APIs
+
+-   Products (Get All / Get By Id)
+-   Production Lines (Get All / Get By Id)
+
+## Current Phase
+
+Phase 4.5 -- Backend Polish
+
+Planned: - Global Exception Middleware - Custom Exceptions -
+ProblemDetails - Better HTTP Status Codes - Validation
